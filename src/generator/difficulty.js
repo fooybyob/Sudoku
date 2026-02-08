@@ -1,16 +1,11 @@
-class Difficulty {
-  constructor() {
-    this.easy = 42;
-    this.medium = 36;
-    this.hard = 24;
-  }
+export class Difficulty {
   get_easy() {
-    return this.easy;
+    return 30;
   }
   get_medium() {
-    return this.medium;
+    return 40;
   }
   get_hard() {
-    return this.hard;
+    return 50;
   }
 }

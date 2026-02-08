@@ -80,4 +80,5 @@ export class Board {
       this.check_square(r, c, number)
     );
   }
+  
 }

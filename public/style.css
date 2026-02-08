@@ -9,8 +9,23 @@
     margin: 2px;
     font-size: 4vw;
     cursor: pointer;
-    border: 2px solid #333;
+    border: 2px solid #000;
   }
+
+  .option-btn {
+    width: 20vw;
+    height: 10vw;
+    background-color: rgb(144, 0, 0);
+    margin: 10px;
+    font-size: 4vw;
+    cursor: pointer;
+    border: 5px solid #000;
+  }
+  
+  .option-btn:hover {
+    background-color: rgb(255, 101, 101);
+  }
+  
   
   .row button.active {
     background-color: rgb(255, 101, 101);
@@ -27,4 +42,29 @@
     padding: 5px;
     background-color: #ff0000;
   }
+
+  #numbers {
+    display: grid;
+    position: fixed;
+    top: 5vw;
+    right: 15vw;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+    gap: 10px;
+  }
+  
+  #numbers button {
+    font-size: 5vw;
+    cursor: pointer;
+    margin: 10px;
+    background-color: rgb(144, 0, 0);
+    border: 5px solid black;
+
+  }
+  #numbers button:hover{
+    background-color:rgb(255, 101, 101) ;
+  }
+
+  
+  
   
