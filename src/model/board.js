@@ -9,7 +9,7 @@ export class Board {
     for (let i = 0; i < 9; i++) {
       const row = [];
       for (let j = 0; j < 9; j++) {
-        const cell = new Cell(i, j, 0, false);
+        const cell = new Cell(i, j, 0, false,false);
         row.push(cell);
       }
       this.cells.push(row);

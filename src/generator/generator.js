@@ -36,6 +36,7 @@ function fill_board(row, col, board) {
     if (board.check_validity(row, col, num)) {
       board.cells[row][col].number = num;
       board.cells[row][col].active = true;
+      board.cells[row][col].def=true;
 
       if (fill_board(row, col + 1, board)) return true;
     }
@@ -62,6 +63,7 @@ function remove_numbers(board) {
       used[row][col] = true;
       board.cells[row][col].number = 0;
       board.cells[row][col].active = false;
+      board.cells[row][col].def=false;
       i++;
     }
   }

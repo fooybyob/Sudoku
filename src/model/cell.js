@@ -1,9 +1,10 @@
 export class Cell {
-  constructor(row, column, number, active) {
+  constructor(row, column, number, active,def) {
     this.row = row;
     this.column = column;
     this.number = number;
     this.active = active;
+    this.def= def;
   }
 
   get_active() {

@@ -1,4 +1,6 @@
 import { generate_board, check_puzzle } from "../generator/generator.js";
+import { solve_board } from "../solver/backtrackingSolver.js";
+import { validator_board } from "../solver/validator.js";
 
 let board = generate_board();
 const boardEl = document.getElementById("board");
@@ -11,7 +13,6 @@ for (let n = 1; n <= 9; n++) {
   btn.addEventListener("click", () => {
     selectedNumber = n;
     console.log("Selected number:", selectedNumber);
-    // Optional: highlight selected button
     document
       .querySelectorAll("#numbers button")
       .forEach((b) => b.classList.remove("selected"));
@@ -23,6 +24,12 @@ for (let n = 1; n <= 9; n++) {
 const solve_button = document.createElement("button");
 solve_button.classList.add("option-btn");
 solve_button.textContent = "Solve Sudoku";
+
+solve_button.onclick = () => {
+  solve_board(0, 0, board);
+  validator_board(board);
+  render();
+};
 
 const generate_button = document.createElement("button");
 generate_button.classList.add("option-btn");
