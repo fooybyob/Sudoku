@@ -2,14 +2,14 @@ import { Board } from "../model/board.js";
 import { Difficulty } from "./difficulty.js";
 export let start_puzzle = null;
 
-export function generate_board() {
+export function generate_board(diff) {
   let board = new Board();
 
   if (!fill_board(0, 0, board)) {
     console.log("allaki");
   }
   start_puzzle = cloneBoard(board);
-  remove_numbers(board);
+  remove_numbers(board,diff);
 
   return board;
 }
@@ -36,7 +36,7 @@ function fill_board(row, col, board) {
     if (board.check_validity(row, col, num)) {
       board.cells[row][col].number = num;
       board.cells[row][col].active = true;
-      board.cells[row][col].def=true;
+      board.cells[row][col].def = true;
 
       if (fill_board(row, col + 1, board)) return true;
     }
@@ -51,19 +51,18 @@ function shuffleArray(arr) {
   return arr.sort(() => Math.random() - 0.5);
 }
 
-function remove_numbers(board) {
-  let diff = new Difficulty();
+function remove_numbers(board,diff) {
   const used = Array.from({ length: 9 }, () => Array(9).fill(false));
 
   let i = 0;
-  while (i < diff.get_easy()) {
+  while (i < diff) {
     let row = getRandom0to8();
     let col = getRandom0to8();
     if (used[row][col] == false) {
       used[row][col] = true;
       board.cells[row][col].number = 0;
       board.cells[row][col].active = false;
-      board.cells[row][col].def=false;
+      board.cells[row][col].def = false;
       i++;
     }
   }

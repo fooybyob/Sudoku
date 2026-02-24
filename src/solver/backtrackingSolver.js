@@ -9,6 +9,7 @@ export function solve_board(row, col, board) {
   for (let num = 1; num <= 9; num++) {
     if (board.check_validity(row, col, num)) {
       board.cells[row][col].number = num;
+      board.cells[row][col].active = true;
 
       if (solve_board(row, col + 1, board)) return true;
 

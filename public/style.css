@@ -13,11 +13,11 @@
   }
 
   .option-btn {
-    width: 20vw;
-    height: 10vw;
+    width: 10vw;
+    height: 5vw;
     background-color: rgb(144, 0, 0);
     margin: 10px;
-    font-size: 4vw;
+    font-size: 2vw;
     cursor: pointer;
     border: 5px solid #000;
   }

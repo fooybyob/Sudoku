@@ -1,8 +1,9 @@
 import { generate_board, check_puzzle } from "../generator/generator.js";
 import { solve_board } from "../solver/backtrackingSolver.js";
 import { validator_board } from "../solver/validator.js";
+import { Difficulty } from "../generator/difficulty.js";
 
-let board = generate_board();
+let board;
 const boardEl = document.getElementById("board");
 
 const numbersEl = document.getElementById("numbers");
@@ -31,15 +32,39 @@ solve_button.onclick = () => {
   render();
 };
 
-const generate_button = document.createElement("button");
-generate_button.classList.add("option-btn");
-generate_button.textContent = "Generate Board";
+const generate_button_hard = document.createElement("button");
+generate_button_hard.classList.add("option-btn");
+generate_button_hard.textContent = " Hard Board";
 
-generate_button.onclick = () => {
-  board = generate_board();
+generate_button_hard.onclick = () => {
+  let diff = new Difficulty();
+  board = generate_board(diff.get_hard());
   render();
 };
-document.body.appendChild(generate_button);
+
+const generate_button_easy = document.createElement("button");
+generate_button_easy.classList.add("option-btn");
+generate_button_easy.textContent = " Easy Board";
+
+generate_button_easy.onclick = () => {
+  let diff = new Difficulty();
+  board = generate_board(diff.get_easy());
+  render();
+};
+
+const generate_button_medium = document.createElement("button");
+generate_button_medium.classList.add("option-btn");
+generate_button_medium.textContent = " Medium Board";
+
+generate_button_medium.onclick = () => {
+  let diff = new Difficulty();
+  board = generate_board(diff.get_medium());
+  render();
+};
+document.body.appendChild(generate_button_easy);
+document.body.appendChild(generate_button_medium);
+document.body.appendChild(generate_button_hard);
+
 document.body.appendChild(solve_button);
 
 function render() {
